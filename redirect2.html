@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirection...</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+    </style>
+</head>
+<body>
+    <h2>Attendez, vous allez être redirigé...</h2>
+    <p>Cliquez sur la pub pour soutenir le service !</p>
+    
+    <!-- Ici, tu peux ajouter une pub ou un lien affilié -->
+    <a href="https://www.example.com/pub" target="_blank">
+        <img src="https://via.placeholder.com/300x250" alt="Publicité">
+    </a>
+
+    <script>
+        function getQueryParam(name) {
+            let params = new URLSearchParams(window.location.search);
+            return params.get(name);
+        }
+
+        let targetURL = getQueryParam("target");
+        if (targetURL) {
+            setTimeout(function() {
+                window.location.href = targetURL;
+            }, 5000); // Redirection après 5 secondes
+        } else {
+            document.body.innerHTML = "<h2>Erreur : URL invalide.</h2>";
+        }
+    </script>
+
+</body></html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Monétisé</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        input, button { margin: 10px; padding: 10px; font-size: 16px; }
+        #qrcode { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h2>Générateur de QR Code Monétisé</h2>
+    <input type="text" id="url" placeholder="Entre l'URL de l'entreprise">
+    <button onclick="generateQR()">Générer</button>
+    <div id="qrcode"></div>
+
+    <script>
+        function generateQR() {
+            let url = document.getElementById("url").value;
+            if (url === "") {
+                alert("Entre une URL !");
+                return;
+            }
+            
+            let trackingURL = "redirect.html?target=" + encodeURIComponent(url);
+            document.getElementById("qrcode").innerHTML = "";
+            new QRCode(document.getElementById("qrcode"), trackingURL);
+        }
+    </script>
+
+</body></html>
